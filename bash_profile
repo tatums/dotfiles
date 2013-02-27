@@ -12,8 +12,8 @@ export PS1='\u@\h \[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
 #export PS1="$txtpur\h\[\033[0;35m\]\w\[\033[0m\]$(parse_git_branch)$ "
 
 
-if [ -f ~/dotfiles/.bash_alias ]; then
-   source ~/dotfiles/.bash_alias
+if [ -f ~/.bash_alias ]; then
+   source ~/.bash_alias
 fi
 
 
