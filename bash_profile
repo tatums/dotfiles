@@ -17,7 +17,7 @@ if [ -f ~/.bash_alias ]; then
 fi
 
 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 export EDITOR='subl'
 
