@@ -3,6 +3,7 @@ require 'irb/completion'
 require 'rubygems'
 require 'awesome_print'
 
+
 def me(store_front_id = 52)
   user = User.find_by_email('t.szymczak@tukaiz.com')
   StoreFront.current = StoreFront.find store_front_id
