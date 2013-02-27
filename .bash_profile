@@ -19,15 +19,15 @@ fi
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
-# New environment setting added by AccuRev on Sun Sep 02 15:28:55 CDT 2012 1.
-# The unmodified version of this file is saved in /Users/tatum/.bash_profile1061586752.
-# Do NOT modify these lines; they are used to uninstall.
-PATH="${PATH}:/Users/tatum/Applications/AccuRev/bin"
-export PATH
-
-# End comments by InstallAnywhere on Sun Sep 02 15:28:55 CDT 2012 1.
 export EDITOR='subl'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+
+# New environment setting added by AccuRev on Mon Feb 25 21:54:48 CST 2013 1.
+# The unmodified version of this file is saved in /Users/tatum/.bash_profile586849700.
+# Do NOT modify these lines; they are used to uninstall.
+PATH="${PATH}:/Users/tatum/Applications/AccuRev/bin"
+export PATH
+# End comments by InstallAnywhere on Mon Feb 25 21:54:48 CST 2013 1.
