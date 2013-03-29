@@ -9,27 +9,57 @@ rescue Exception => e
 end
 
 
-def me(store_front_id = 52)
-  user = User.find_by_email('t.szymczak@tukaiz.com')
-  StoreFront.current = StoreFront.find(store_front_id)
-  StoreFrontUser.current = user.store_front_users.find_by_store_front_id(store_front_id)
-  "StoreFront: #{current_store_front.id}, #{current_store_front.name} | StoreFrontUser: #{current_store_front_user.id} | User: #{user.id}"
-end
 
-def current_store_front
-  StoreFront.current
-end
+# class Object
+#   def interesting_methods
+#     case self.class
+#     when Class
+#       self.public_methods.sort - Object.public_methods
+#     when Module
+#       self.public_methods.sort - Module.public_methods
+#     else
+#       self.public_methods.sort - Object.new.public_methods
+#     end
+#   end
+# end
 
-def current_store_front_user
-  StoreFrontUser.current
-end
 
-def sfs(args = {:all => false})
-  if args[:all]
-    awesome_print StoreFront.all; nil
-  else
+
+module BackstageHelper
+
+  def user(id=nil)
+    User.find_by_id(id) || User.find_by_email('t.szymczak@tukaiz.com')
+  end
+
+  def me(sf_id = 24)
+    StoreFront.current = StoreFront.find(sf_id)
+    StoreFrontUser.current = StoreFrontUser.find_by_store_front_id_and_user_id(sf_id, user.id)
+    "StoreFront: #{StoreFront.current.id}, #{StoreFront.current.name} | StoreFrontUser: #{StoreFrontUser.current.id} | User: #{user.id}"
+  end
+
+  def current_store_front
+    StoreFront.current
+  end
+
+  def current_store_front_user
+    StoreFrontUser.current
+  end
+
+  def csf
+    StoreFront.current
+  end
+
+  def csfu
+    StoreFrontUser.current
+  end
+
+  def sfs
     awesome_print StoreFront.all.map{|sf| "#{sf.id} | #{sf.name}" }; nil
   end
 end
 
-load './lib/stocks.rb' if File.exists?('./lib/stocks.rb')
+if Dir.pwd == '/Users/tatum/Code/TKML/backstage_ci_tatum'
+  puts 'Loading Backstage Helpers. current_store_front, current_store_front_user, csf, csfu'
+  include BackstageHelper
+end
+
