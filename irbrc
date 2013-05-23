@@ -10,25 +10,25 @@ end
 
 
 
-# class Object
-#   def interesting_methods
-#     case self.class
-#     when Class
-#       self.public_methods.sort - Object.public_methods
-#     when Module
-#       self.public_methods.sort - Module.public_methods
-#     else
-#       self.public_methods.sort - Object.new.public_methods
-#     end
-#   end
-# end
+class Object
+  def interesting_methods
+    case self.class
+    when Class
+      self.public_methods.sort - Object.public_methods
+    when Module
+      self.public_methods.sort - Module.public_methods
+    else
+      self.public_methods.sort - Object.new.public_methods
+    end
+  end
+end
 
 
 
 module BackstageHelper
 
-  def user(id=nil)
-    User.find_by_id(id) || User.find_by_email('t.szymczak@tukaiz.com')
+  def user(email='-')
+    User.find_by_email(email) || User.find_by_email('t.szymczak@tukaiz.com')
   end
 
   def me(sf_id = 24)

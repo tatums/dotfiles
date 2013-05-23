@@ -1,15 +1,12 @@
-#Git
-alias gf='git fetch'
-alias gco='git checkout'
-alias gb='git branch'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gst='git status'
-alias gs='git status'
-
 #Rails
 alias rs='rails s'
 alias rc='rails c'
 alias ss='script/server'
 alias sc='script/console'
+
+#simple cov
+alias ocov='open coverage/index.html'
+
+
+##
+alias gs='echo Hey... dummy, stop using gs.'
