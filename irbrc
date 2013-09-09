@@ -11,7 +11,7 @@ end
 
 
 class Object
-  def interesting_methods
+  def int_methods
     case self.class
     when Class
       self.public_methods.sort - Object.public_methods
