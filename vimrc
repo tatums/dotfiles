@@ -1,6 +1,8 @@
 colorscheme molokai
-:syntax on
-:set number
+syntax on
+set number
+set t_Co=256
+set tabstop=2 shiftwidth=2 expandtab
 
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -8,8 +10,15 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+
+" Show trailing white space
+set list
+set lcs=tab:▒░,trail:▓
+
+
+
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -35,4 +44,7 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
+
+" Remove trailing whitespace on save
+autocmd BufWritePre *.py :%s/\s\+$//e
 
