@@ -10,3 +10,9 @@ alias ocov='open coverage/index.html'
 
 ##
 alias gs='echo Hey... dummy, stop using gs.'
+
+
+
+
+alias spec='spring rspec'
+
