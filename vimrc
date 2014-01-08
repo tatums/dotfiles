@@ -7,6 +7,9 @@ set list
 set lcs=tab:▒░,trail:▓
 
 
+"spell checking yo"
+:setlocal spell spelllang=en_us
+
 
 colorscheme molokai
 syntax on
