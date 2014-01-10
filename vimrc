@@ -1,7 +1,6 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-
 " Show trailing white space
 set list
 set lcs=tab:▒░,trail:▓
@@ -9,7 +8,8 @@ set lcs=tab:▒░,trail:▓
 
 "spell checking yo"
 :setlocal spell spelllang=en_us
-
+"auto complete spelling"
+set complete+=kspell
 
 colorscheme molokai
 syntax on
