@@ -1,3 +1,9 @@
+# moving up in folders;
+function u() { NUM=${1:-1}; for (( start = 1; start <= $NUM; start++ )); do cd ..; done; }
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 #Rails
 alias rs='rails s'
 alias rc='rails c'

@@ -28,4 +28,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 
 
-
+"---pathogen---"
+"---to install plugins---"
+execute pathogen#infect()
+filetype plugin indent on
+"---pathogen---"
