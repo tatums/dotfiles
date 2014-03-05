@@ -27,9 +27,25 @@ autocmd BufWritePre * :%s/\s\+$//e
 "---- Relative Number
 
 
+"-----
+:let NERDTreeQuitOnOpen = 0
+"-----
+
+
+"--- map cnt+n to toggle NERDTree---"
+map <C-n> :NERDTreeToggle<CR>
+"--- map cnt+n to toggle NERDTree---"
+
 
 "---pathogen---"
 "---to install plugins---"
 execute pathogen#infect()
 filetype plugin indent on
 "---pathogen---"
+
+
+"------ctrlp------"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+"------ctrlp------"
+
+
