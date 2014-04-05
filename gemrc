@@ -6,6 +6,7 @@ gem: --no-ri --no-rdoc
 - http://rubygems.org/
 - http://gems.github.com
 - http://gems.github.com
+- http://gems.github.com
 :backtrace: false
 :verbose: true
 :benchmark: false

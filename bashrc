@@ -11,3 +11,6 @@ export PS1='\u@\h \[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
 # Don't list the same command more then once in history
 HISTCONTROL=ignoreboth
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

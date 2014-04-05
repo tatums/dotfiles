@@ -13,8 +13,3 @@ alias sc='script/console'
 #simple cov
 alias ocov='open coverage/index.html'
 
-
-##
-alias gs='echo Hey... dummy, stop using gs.'
-
-
