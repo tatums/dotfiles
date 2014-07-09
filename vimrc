@@ -19,8 +19,8 @@ set background=dark
 colorscheme getafe
 
 "colorscheme github
-"highlight NonText guibg=#060606
-"highlight Folded  guibg=#0A0A0A guifg=#9090D0
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 
 syntax on
@@ -30,17 +30,20 @@ set tabstop=2 shiftwidth=2 expandtab
 
 
 " leader mappings "
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeFind<CR>
 map <Leader>b :BuffergatorToggle<CR>
 " leader mappings "
 
+" don't allow backspacing over everything in insert mode
+set backspace=
 
 " ---  Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 " ---  Remove trailing whitespace
 
+
 "---- Relative Number
-"set relativenumber
+" set relativenumber
 "---- Relative Number
 
 
@@ -109,4 +112,20 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" Quicker window movement
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+
+
+map <Leader>p :CtrlP<CR>
+
+
+" Disable arrow keys in visual mode
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 

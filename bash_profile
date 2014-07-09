@@ -24,7 +24,7 @@ fi
 
 
 # ACCuCREV --- New environment setting added by AccuRev on Mon Feb 25 21:54:48 CST 2013 1.
-PATH="${PATH}:/Users/tatum/Applications/AccuRev/bin"
+PATH="${PATH}:/Users/tszymczak/Applications/AccuRev/bin"
 export PATH
 
 

@@ -1,5 +1,10 @@
+# Ignore the case of the folder/file when using tab complete
+set completion-ignore-case On
+
+
 # Vim mode
 # Defaults to insert mode... press ESC to get to normal mode
 #set -o vi
 #set editing-mode vi
 #set keymap vi
+#
