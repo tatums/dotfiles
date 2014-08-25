@@ -4,7 +4,7 @@
 	name = tatums
 	email = tatum@ashlandstudios.com
 [core]
-	excludesfile = /Users/tszymczak/.gitignore_global
+	excludesfile = /Users/tatum/.gitignore_global
 [mergetool]
 	keepBackup = false
 [push]
@@ -26,3 +26,6 @@
   f = fetch
 [merge]
 	tool = opendiff
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

@@ -12,15 +12,14 @@ set list
 "auto complete spelling"
 "set complete+=kspell
 
-"colorscheme molokai
-colorscheme getafe
-syntax enable
-set background=dark
-colorscheme getafe
-
+colorscheme molokai
+"colorscheme getafe
 "colorscheme github
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+"syntax enable
+set background=dark
+"highlight NonText guibg=#060606
+"highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
 
 
 syntax on
@@ -129,3 +128,7 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+
+
+"  Down create .swp files
+set noswapfile
