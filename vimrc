@@ -6,6 +6,8 @@ filetype off                   " required!
 let mapleader = " "
 set list
 
+" Map jk to ESC - to quickly exit insert mode
+inoremap jk <esc>
 
 "spell checking yo"
 ":setlocal spell spelllang=en_us
@@ -13,10 +15,16 @@ set list
 "set complete+=kspell
 
 colorscheme molokai
+let g:rehash256 = 1
+"let g:molokai_original = 1
+
+
 "colorscheme getafe
 "colorscheme github
-"syntax enable
+syntax enable
 set background=dark
+"colorscheme solarized
+
 "highlight NonText guibg=#060606
 "highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -30,8 +38,16 @@ set tabstop=2 shiftwidth=2 expandtab
 
 " leader mappings "
 map <Leader>n :NERDTreeFind<CR>
+map <Leader>h :NERDTreeToggle<CR>
 map <Leader>b :BuffergatorToggle<CR>
 " leader mappings "
+
+
+" Disable Ex mode
+map Q <Nop>
+" Disable K looking stuff up
+map K <Nop>
+
 
 " don't allow backspacing over everything in insert mode
 set backspace=
@@ -119,7 +135,9 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
 
 
-map <Leader>p :CtrlP<CR>
+"map <Leader>p :CtrlP<CR>
+"copy and paste
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 
 " Disable arrow keys in visual mode
@@ -128,7 +146,23 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Keep yanked lines after paste
+vnoremap <leader>] "_dP
 
 
 "  Down create .swp files
 set noswapfile
+
+
+
+augroup filetypedetect
+au BufNewFile,BufRead *.js.erb set filetype=javascript
+augroup end
+
+
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+nnoremap <Leader>b :BuffergatorToggle<CR>
+
