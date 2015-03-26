@@ -1,4 +1,3 @@
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -6,13 +5,12 @@ filetype off                   " required!
 let mapleader = " "
 set list
 
-" Map jk to ESC - to quickly exit insert mode
+" Map jk to ESC - to quickly exit insert mode "
 inoremap jk <esc>
 
-"spell checking yo"
-":setlocal spell spelllang=en_us
-"auto complete spelling"
-"set complete+=kspell
+
+
+
 
 colorscheme molokai
 let g:rehash256 = 1
@@ -29,7 +27,6 @@ set background=dark
 "highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 
-
 syntax on
 set number
 set t_Co=256
@@ -42,11 +39,6 @@ map <Leader>h :NERDTreeToggle<CR>
 map <Leader>b :BuffergatorToggle<CR>
 " leader mappings "
 
-
-" Disable Ex mode
-map Q <Nop>
-" Disable K looking stuff up
-map K <Nop>
 
 
 " don't allow backspacing over everything in insert mode
@@ -71,17 +63,17 @@ filetype plugin indent on
 
 
 
-" --- Colors for tabs
-:hi TabLineFill ctermfg=Black ctermbg=Cyan
-:hi TabLineSel ctermbg=White ctermbg=Cyan
-:hi Title ctermfg=Yellow
-" --- Colors for tabs
+"" --- Colors for tabs
+":hi TabLineFill ctermfg=Black ctermbg=Cyan
+":hi TabLineSel ctermbg=White ctermbg=Cyan
+":hi Title ctermfg=Yellow
+"" --- Colors for tabs
 
 " --- change the cursor chape ---
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " --- change the cursor chape ---
-"
+
 " search https://github.com/ggreer/the_silver_searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
@@ -128,6 +120,8 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 set splitbelow
 set splitright
 
+
+
 " Quicker window movement
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
@@ -135,7 +129,6 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
 
 
-"map <Leader>p :CtrlP<CR>
 "copy and paste
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
@@ -145,6 +138,8 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+
 
 " Keep yanked lines after paste
 vnoremap <leader>] "_dP

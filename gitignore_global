@@ -42,3 +42,6 @@ TODO.md
 
 ## - VIM
 *.swp
+
+.vagrant
+Vagrantfile

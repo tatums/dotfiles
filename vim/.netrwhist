@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/tatum/Code/PERSONAL/ami'
-let g:netrw_dirhist_2='/Users/tatum/Code/PERSONAL/ami/app'
-let g:netrw_dirhist_3='/Users/tatum/Code/PERSONAL/ami/app/assets'
-let g:netrw_dirhist_4='/Users/tatum/Code/PERSONAL/ami/app/assets/javascripts'
-let g:netrw_dirhist_5='/Users/tatum/Code/PERSONAL/ami/app/assets/javascripts/courses'
-let g:netrw_dirhist_6='/Users/tatum/Code/PERSONAL/ami/app/assets/javascripts/courses/templates'
-let g:netrw_dirhist_7='/Users/tatum/Code/PERSONAL/ami'
