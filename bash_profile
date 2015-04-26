@@ -4,15 +4,21 @@ if [ -f ~/.bash_alias ]; then
    source ~/.bash_alias
 fi
 
-
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
 export EDITOR='vim'
 
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if [ -f /usr/local/bin/brew ]; then
+
+  ## bash completion
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+  fi
+
+  ## autojump
+  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 fi
+
 
 
 ## import bashrc file ##
