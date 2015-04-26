@@ -16,7 +16,6 @@ if [ -f /usr/local/bin/brew ]; then
 
   ## autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
 fi
 
 
@@ -35,8 +34,10 @@ fi
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 
-eval "$(rbenv init -)"
-export PATH=/usr/local/sbin:$PATH
+if [ -f /usr/local/bin/rbenv ]; then
+  eval "$(rbenv init -)"
+  export PATH=/usr/local/sbin:$PATH
+fi
 
 ##  Chef
 PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
