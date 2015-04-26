@@ -44,4 +44,5 @@ TODO.md
 *.swp
 
 .vagrant
-Vagrantfile
+
+.vim/bundle
