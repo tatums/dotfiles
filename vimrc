@@ -1,6 +1,23 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
+Plugin 'gmarik/Vundle.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+
+
+
+
 " Leader
 let mapleader = " "
 set list
@@ -9,6 +26,11 @@ set list
 inoremap jk <esc>
 
 
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 
 
@@ -19,8 +41,9 @@ let g:rehash256 = 1
 
 "colorscheme getafe
 "colorscheme github
-syntax enable
-set background=dark
+
+"syntax enable
+"set background=dark
 "colorscheme solarized
 
 "highlight NonText guibg=#060606
@@ -131,7 +154,6 @@ nnoremap <Leader>l <C-w>l
 
 "copy and paste
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
-
 
 " Disable arrow keys in visual mode
 nnoremap <Left> :echoe "Use h"<CR>
