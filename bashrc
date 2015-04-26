@@ -8,7 +8,8 @@ function parse_git_branch {
 }
 #export PS1='\u@\h \[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
 #export PS1='\[033[0;36m\w\033[0m\]$(parse_git_branch)$ '
-export PS1='\[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
+#export PS1='\[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
+export PS1='\[\033[1;96m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
 # Don't list the same command more then once in history
 HISTCONTROL=ignoreboth
