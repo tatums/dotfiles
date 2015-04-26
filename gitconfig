@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [user]
-	name = tatums
+	name = Tatum
 	email = tatum@ashlandstudios.com
 [core]
 	excludesfile = /Users/tatum/.gitignore_global
@@ -29,3 +29,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[github]
+	user = tatums
