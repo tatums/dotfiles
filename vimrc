@@ -7,6 +7,7 @@ call vundle#begin()
 
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdtree'
 
 Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
