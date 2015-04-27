@@ -10,6 +10,7 @@ Bundle 'mattn/gist-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
+Bundle 'vim-buggergator'
 
 Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
