@@ -12,6 +12,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-rails'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'slim-template/vim-slim'
 
 Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
