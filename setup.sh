@@ -13,19 +13,25 @@ files="bashrc bash_alias bash_profile irbrc inputrc gemrc vimrc vim gitconfig gi
 ##########
 
 # create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
+echo "\n\n Creating $olddir for backup of any existing dotfiles in ~\n\n"
 mkdir -p $olddir
-echo "...done"
+echo "\n...done"
 
 # change to the dotfiles directory
-echo "Changing to the $dir directory"
+echo "\n\n Changing to the $dir directory \n\n"
 cd $dir
-echo "...done"
+echo "\n...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
+    echo "\n\nMoving any existing dotfiles from ~ to $olddir\n\n"
     mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
+    echo "\n\nCreating symlink to $file in home directory.\n\n"
     ln -s $dir/$file ~/.$file
 done
+
+echo "\n\n Setting up Vundle \n\n"
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "\n\n Installing Plugins \n\n"
+vim +PluginInstall +qall
