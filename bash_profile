@@ -18,6 +18,9 @@ if [ -f /usr/local/bin/brew ]; then
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 fi
 
+if [ -f ~/.local_exports ]; then
+   source ~/.local_exports
+fi
 
 
 ## import bashrc file ##
