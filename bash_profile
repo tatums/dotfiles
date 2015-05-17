@@ -1,11 +1,17 @@
 PATH=/usr/local/bin:$PATH
 
-if [ -f ~/.bash_alias ]; then
-   source ~/.bash_alias
-fi
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,bash_alias,extra}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+
 
 export EDITOR='vim'
-
 
 if [ -f /usr/local/bin/brew ]; then
 
@@ -18,9 +24,6 @@ if [ -f /usr/local/bin/brew ]; then
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 fi
 
-if [ -f ~/.local_exports ]; then
-   source ~/.local_exports
-fi
 
 
 ## import bashrc file ##
