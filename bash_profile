@@ -24,13 +24,6 @@ fi
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
 
-# ACCuCREV --- New environment setting added by AccuRev on Mon Feb 25 21:54:48 CST 2013 1.
-if [ -f /Users/tatum/Applications/AccuRev/bin ]; then
-  PATH="${PATH}:/Users/tatum/Applications/AccuRev/bin"
-  export PATH
-fi
-
-
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 
@@ -38,7 +31,4 @@ if [ -f /usr/local/bin/rbenv ]; then
   eval "$(rbenv init -)"
   export PATH=/usr/local/sbin:$PATH
 fi
-
-##  Chef
-PATH=$HOME/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:$PATH
 
