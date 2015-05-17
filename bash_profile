@@ -4,7 +4,7 @@ PATH=/usr/local/bin:$PATH
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bash_rc,path,bash_alias,extra}; do
+for file in ~/.{bashrc,path,bash_alias,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
