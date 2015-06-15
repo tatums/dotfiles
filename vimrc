@@ -19,6 +19,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'slim-template/vim-slim'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle "sclo/haproxy.vim"
+Bundle 'bogado/file-line'
 Plugin 'gmarik/Vundle.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
