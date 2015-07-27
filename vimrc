@@ -14,12 +14,17 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle "tpope/vim-endwise.git"
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'slim-template/vim-slim'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle "sclo/haproxy.vim"
+Bundle "nathanaelkane/vim-indent-guides"
+Bundle 'bogado/file-line'
 Plugin 'gmarik/Vundle.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,6 +69,17 @@ syntax on
 set number
 set t_Co=256
 set tabstop=2 shiftwidth=2 expandtab
+
+
+
+"vim-indent-guides
+"let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=4
+let g:indent_guides_color_change_percent = 10
+let g:indent_guides_guide_size = 1
+"vim-indent-guides
+
 
 
 " leader mappings "
