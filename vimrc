@@ -78,8 +78,26 @@ map <Leader>b :BuffergatorToggle<CR>
 set backspace=
 
 " ---  Remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.js :call <SID>StripTrailingWhitespaces()
 " ---  Remove trailing whitespace
+
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
+" -- function to strip whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+
 
 
 "---- Relative Number
@@ -184,6 +202,7 @@ set noswapfile
 
 augroup filetypedetect
 au BufNewFile,BufRead *.js.erb set filetype=javascript
+au BufNewFile,BufRead *.adp set filetype=html
 augroup end
 
 
