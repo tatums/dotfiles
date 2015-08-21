@@ -1,0 +1,42 @@
+""color molokai
+""color getafe
+syntax enable
+set background=dark
+color getafe
+""colorscheme solarized
+
+
+let mapleader = " "
+
+
+
+" Map jk to ESC - to quickly exit insert mode "
+inoremap jk <esc>
+
+
+
+" Quicker window movement
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+
+
+" NERDTree
+map <Leader>n :NERDTreeFind<CR>
+"map <Leader>h :NERDTreeToggle<CR>
+
+" BufferGator
+map <Leader>b :BuffergatorToggle<CR>
+
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+"set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
+"
+hi NERDTreeFile ctermbg=None ctermfg=Grey
