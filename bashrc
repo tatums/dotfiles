@@ -21,8 +21,6 @@ if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
   #GIT_PROMPT_THEME=Solarized_NoExitState_Ubuntu
   #GIT_PROMPT_THEME=Solarized_Ubuntu
   GIT_PROMPT_THEME=Custom
-
-
   source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
 
@@ -33,3 +31,6 @@ HISTCONTROL=ignoreboth
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
