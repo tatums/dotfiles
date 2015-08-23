@@ -1,15 +1,32 @@
 PATH=$PATH:/usr/local/bin # homebrew - here for non-interactive shell
 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
-}
-#export PS1='\u@\h \[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
-#export PS1='\[033[0;36m\w\033[0m\]$(parse_git_branch)$ '
-#export PS1='\[\033[1;32m\]\w\[\033[0m\]$(parse_git_branch)$ '
-export PS1='\[\033[1;96m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+
+  #GIT_PROMPT_THEME=Solarized
+  #GIT_PROMPT_THEME=Single_line_openSUSE
+  #GIT_PROMPT_THEME=Single_line
+
+  #GIT_PROMPT_THEME=Custom.bgptemplate
+  #GIT_PROMPT_THEME=Default
+  #GIT_PROMPT_THEME=Default_NoExitState
+  #GIT_PROMPT_THEME=Default_NoExitState_Ubuntu
+  #GIT_PROMPT_THEME=Default_Ubuntu
+  #GIT_PROMPT_THEME=Single_line
+  #GIT_PROMPT_THEME=Single_line_NoExitState_openSUSE
+  #GIT_PROMPT_THEME=Single_line_Ubuntu
+  #GIT_PROMPT_THEME=Single_line_openSUSE
+  #GIT_PROMPT_THEME=Solarized
+  #GIT_PROMPT_THEME=Solarized_NoExitState
+  #GIT_PROMPT_THEME=Solarized_NoExitState_Ubuntu
+  #GIT_PROMPT_THEME=Solarized_Ubuntu
+  GIT_PROMPT_THEME=Custom
+
+
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+
+
 
 # Don't list the same command more then once in history
 HISTCONTROL=ignoreboth
