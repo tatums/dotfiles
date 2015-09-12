@@ -1,5 +1,7 @@
 PATH=/usr/local/bin:$PATH
 
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
