@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-if system("git --version 2>&1 >/dev/null")
+unless system("git --version 2>&1 >/dev/null")
   puts "\n\n ERROR: dude you gotta have GIT installed before we can move on. \n\n"
   abort
 end

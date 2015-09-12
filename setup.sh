@@ -28,8 +28,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-echo "--Setting up Vundle"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -Lo- https://bit.ly/janus-bootstrap | bash
 
-echo "--Installing Plugins"
-vim +PluginInstall +qall
+
+echo "run `ruby vim-setup.rb`"
