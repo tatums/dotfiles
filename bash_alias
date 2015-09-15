@@ -4,6 +4,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias ll='ls -la'
 #Rails
 alias r='rails'
 alias rs='rails s'
