@@ -2,9 +2,9 @@
 ""color getafe
 syntax enable
 set background=dark
-color getafe
-""colorscheme solarized
-
+"color getafe
+"colorscheme solarized
+color molokai
 
 let mapleader = " "
 

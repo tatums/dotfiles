@@ -3,24 +3,9 @@ PATH=$PATH:/usr/local/bin # homebrew - here for non-interactive shell
 
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
 
-  #GIT_PROMPT_THEME=Solarized
-  #GIT_PROMPT_THEME=Single_line_openSUSE
-  #GIT_PROMPT_THEME=Single_line
-
-  #GIT_PROMPT_THEME=Custom.bgptemplate
-  #GIT_PROMPT_THEME=Default
-  #GIT_PROMPT_THEME=Default_NoExitState
-  #GIT_PROMPT_THEME=Default_NoExitState_Ubuntu
-  #GIT_PROMPT_THEME=Default_Ubuntu
-  #GIT_PROMPT_THEME=Single_line
-  #GIT_PROMPT_THEME=Single_line_NoExitState_openSUSE
-  #GIT_PROMPT_THEME=Single_line_Ubuntu
-  #GIT_PROMPT_THEME=Single_line_openSUSE
-  #GIT_PROMPT_THEME=Solarized
-  #GIT_PROMPT_THEME=Solarized_NoExitState
-  #GIT_PROMPT_THEME=Solarized_NoExitState_Ubuntu
-  #GIT_PROMPT_THEME=Solarized_Ubuntu
-  GIT_PROMPT_THEME=Custom
+  ## TODO Add to setup.sh
+  ## ln -s ~/dotfiles/Tatum.bgptheme /usr/local/opt/bash-git-prompt/share/themes/Tatum.bgptheme
+  GIT_PROMPT_THEME=Tatum
   source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
 
