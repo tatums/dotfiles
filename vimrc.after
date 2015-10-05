@@ -1,19 +1,17 @@
-""color molokai
-""color getafe
+let g:solarized_termcolors=256
 syntax enable
 set background=dark
-"color getafe
-"colorscheme solarized
-color molokai
+colorscheme candycode
+
 
 let mapleader = " "
-
 
 
 " Map jk to ESC - to quickly exit insert mode "
 inoremap jk <esc>
 
-
+" share system clipboard withh vim
+set clipboard=unnamed
 
 " Quicker window movement
 nnoremap <Leader>j <C-w>j
