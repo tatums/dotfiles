@@ -46,3 +46,8 @@ TODO.md
 .vagrant
 
 vim/bundle
+
+
+## Javascript
+node_modules/
+
