@@ -8,6 +8,10 @@ end
 target_location = "~/.janus"
 plugins = [
   {
+    name: "vim-jade",
+    url: "git@github.com:statianzo/vim-jade.git"
+  },
+  {
     name: "vim-rspec",
     url: "https://github.com/thoughtbot/vim-rspec.git"
   },
