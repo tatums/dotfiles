@@ -38,3 +38,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 "
 hi NERDTreeFile ctermbg=None ctermfg=Grey
+
+" Dont hide quotes in json files
+let g:vim_json_syntax_conceal = 0
