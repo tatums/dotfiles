@@ -1,7 +1,7 @@
 [color]
 	ui = true
 [user]
-	name = Tatum
+	name = Tatum Szymczak
 	email = tatum@ashlandstudios.com
 [core]
 	excludesfile = /Users/tatum/.gitignore_global
