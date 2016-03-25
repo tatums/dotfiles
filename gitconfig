@@ -4,7 +4,7 @@
 	name = Tatum Szymczak
 	email = tatum@ashlandstudios.com
 [core]
-	excludesfile = /Users/tatum/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [mergetool]
 	keepBackup = false
 [push]
