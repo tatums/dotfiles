@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-These are my dotfiles - There are many like them... But these are mine.
+These are my dotfiles. There are many like them, but these are mine.
 
 
 ![gun](http://i.ytimg.com/vi/YoU2hlDJmFE/maxresdefault.jpg)
