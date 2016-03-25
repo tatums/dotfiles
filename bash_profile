@@ -35,3 +35,4 @@ if [ -f /usr/local/bin/rbenv ]; then
   export PATH=/usr/local/sbin:$PATH
 fi
 
+eval "$(docker-machine env default)"
