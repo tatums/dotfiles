@@ -12,6 +12,8 @@ done;
 unset file;
 
 
+export PATH="$HOME/bin:$PATH"
+
 export EDITOR='vim'
 
 if [ -f /usr/local/bin/brew ]; then

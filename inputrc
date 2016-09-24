@@ -4,6 +4,6 @@ set completion-ignore-case On
 # Vim mode
 # Defaults to insert mode... press ESC to get to normal mode
 #set -o vi
-set editing-mode vi
-set keymap vi
+#set editing-mode vi
+#set keymap vi
 #

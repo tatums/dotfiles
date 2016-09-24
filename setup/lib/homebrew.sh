@@ -15,7 +15,8 @@ nvm
 rbenv
 ruby-build
 autojump
-the_silver_searcher"
+the_silver_searcher
+nmap"
 
 options=("YES" "NO")
 
