@@ -18,8 +18,8 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Don't list the same command more then once in history
-HISTCONTROL=ignoreboth
+# http://direnv.net/
+eval "$(direnv hook bash)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
