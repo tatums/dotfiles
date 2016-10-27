@@ -42,3 +42,38 @@ hi NERDTreeFile ctermbg=None ctermfg=Grey
 
 " Dont hide quotes in json files
 let g:vim_json_syntax_conceal = 0
+
+" https://github.com/ntpeters/vim-better-whitespace
+autocmd BufWritePre * StripWhitespace
+
+" clojure stuff
+au VimEnter *.clj RainbowParenthesesToggle
+
+let g:rbpt_bold = 1
+let g:rbpt_colorpairs = [
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 7
+
+" clojure indenting
+autocmd FileType clojure set lispwords+=describe,describe-server,it,
+      \before-all,after-all,before,after,init-state,render,render-state,
+      \will-mount,did-mount,should-update,will-receive-props,will-update,
+      \did-update,display-name,will-unmount,describe-with-db,
+      \describe-with-server,swaggered,describe-with-db,describe-with-es,
+      \context,context*,GET*,POST*,PUT*,DELETE*,poll-es-until-timeout,
+      \around,defstate,if-let,ns,doseq
+
+
+" vim-sexp raise element and form remappings
+nmap <buffer> <re <Plug>(sexp_raise_element)
+nmap <buffer> <rf <Plug>(sexp_raise_list)
+
+
+
