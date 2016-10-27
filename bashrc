@@ -21,6 +21,10 @@ shopt -s histappend                      # append to history, don't overwrite it
 # http://direnv.net/
 eval "$(direnv hook bash)"
 
+
+# Enable bash completion for aws cli
+complete -C '/usr/local/bin/aws_completer' aws
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
