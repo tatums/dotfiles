@@ -28,7 +28,5 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-curl -Lo- https://bit.ly/janus-bootstrap | bash
-
 
 echo "run `ruby vim-setup.rb`"

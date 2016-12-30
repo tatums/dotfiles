@@ -6,5 +6,5 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ## 3 vim-setup.rb
 
 sh ${DIR}/setup/lib/dotfiles.sh
-sh ${DIR}/setup/lib/homebrew.sh
-ruby ${DIR}/setup/lib/vim-setup.rb
+# sh ${DIR}/setup/lib/homebrew.sh
+# ruby ${DIR}/setup/lib/vim-setup.rb

@@ -21,20 +21,6 @@ shopt -s histappend                      # append to history, don't overwrite it
 # http://direnv.net/
 eval "$(direnv hook bash)"
 
-
 # Enable bash completion for aws cli
 complete -C '/usr/local/bin/aws_completer' aws
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-## Docker
-DOCKER_MACHINE="default"
-if docker-machine status $DOCKER_MACHINE | grep "Running" &> /dev/null; then
-  eval "$(docker-machine env $DOCKER_MACHINE)"
-else
-  docker-machine start $DOCKER_MACHINE && eval "$(docker-machine env $DOCKER_MACHINE)"
-fi

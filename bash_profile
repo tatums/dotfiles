@@ -28,10 +28,6 @@ if [ -f /usr/local/bin/brew ]; then
 fi
 
 
-
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
-
-
 if [ -f /usr/local/bin/rbenv ]; then
   eval "$(rbenv init -)"
   export PATH=/usr/local/sbin:$PATH
