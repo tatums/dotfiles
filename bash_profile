@@ -4,13 +4,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export PATH="$HOME/bin:$PATH"
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{bashrc,path,bash_alias,extra}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
 
 ## bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -34,3 +27,12 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 # rbenv
 eval "$(rbenv init -)"
+
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{bashrc,path,bash_alias,extra}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
