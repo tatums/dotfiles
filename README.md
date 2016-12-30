@@ -8,6 +8,6 @@ These are my dotfiles. There are many like them, but these are mine.
 Run the command below to install them.
 
 ```
-$ sh setup/main.sh
+$ ./bootstrap
 ```
 

@@ -26,4 +26,11 @@ if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 
+# http://direnv.net/
+eval "$(direnv hook bash)"
+
+# Enable bash completion for aws cli
+complete -C '/usr/local/bin/aws_completer' aws
+
+# rbenv
 eval "$(rbenv init -)"
