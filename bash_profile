@@ -1,7 +1,8 @@
-PATH=/usr/local/bin:$PATH
-
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+export EDITOR='vim'
+export PATH="$HOME/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -11,26 +12,18 @@ for file in ~/.{bashrc,path,bash_alias,extra}; do
 done;
 unset file;
 
-
-export PATH="$HOME/bin:$PATH"
-
-export EDITOR='vim'
-
-if [ -f /usr/local/bin/brew ]; then
-
-  ## bash completion
-  if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-  fi
-
-  ## autojump
-  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+## bash completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
 fi
 
 
-if [ -f /usr/local/bin/rbenv ]; then
-  eval "$(rbenv init -)"
-  export PATH=/usr/local/sbin:$PATH
-fi
+## enable nodenv
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
-eval "$(docker-machine env default)"
+
+## autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+
+eval "$(rbenv init -)"
