@@ -1,18 +1,9 @@
 # moving up in folders;
-function u() { NUM=${1:-1}; for (( start = 1; start <= $NUM; start++ )); do cd ..; done; }
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias ll='ls -la'
-#Rails
-alias r='rails'
-alias rs='rails s'
-alias rc='rails c'
-alias ss='script/server'
-alias sc='script/console'
+
+## bundler
 alias be='bundle exec'
-
-#simple cov
-alias ocov='open coverage/index.html'
-
