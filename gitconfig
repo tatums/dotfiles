@@ -21,7 +21,7 @@
   s = status
   c = commit
   a = add
-  b = branch
+  b = branch --sort=-committerdate
   co = checkout
   f = fetch
 [merge]

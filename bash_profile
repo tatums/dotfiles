@@ -29,6 +29,10 @@ complete -C '/usr/local/bin/aws_completer' aws
 eval "$(rbenv init -)"
 
 
+# Go lang
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$GOPATH/bin
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -36,3 +40,13 @@ for file in ~/.{bashrc,path,bash_alias,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+# Puts homebrew right up front
+#
+# This fixes a problem where a ruby executable will
+# execute before a homebrew installed version.  A good example
+# is the heroku cli.  There is a legacy gem and a newer node version.
+# If you have the ruby gem installed anywhere .rbenv will take precedence
+# which is not desired.
+homebrew=/usr/local/bin:/usr/local/sbin
+export PATH=$homebrew:$PATH
