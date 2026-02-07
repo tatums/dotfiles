@@ -1,4 +1,4 @@
-# ZSHRC
+# ~/.zshrc
 #
 #
 #    This file is for interactive shell options.
@@ -11,77 +11,74 @@
 #
 #    The load order is:
 #
-#        /Users/tatum/.zshenv
-#        /Users/tatum/.zprofile
-#        /Users/tatum/.zshrc
+#        $HOME/.zshenv
+#        $HOME/.zprofile
+#        $HOME/.zshrc
 #
+#
+# Interactive shell configuration only.
 
+# History configuration
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
 
-# https://unix.stackexchange.com/questions/599641/why-do-i-have-duplicates-in-my-zsh-history
-setopt HIST_EXPIRE_DUPS_FIRST
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
 
+setopt HIST_FIND_NO_DUPS
+setopt HIST_FCNTL_LOCK
+
+# Terminal capabilities
 export TERM=xterm-256color
 export COLORTERM=truecolor
-
-
-# https://askubuntu.com/questions/23630/how-do-you-share-history-between-terminals-in-zsh
-setopt inc_append_history
-setopt share_history
-
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-
-## direnv
-eval "$(direnv hook zsh)"
-
-
-# nodenv
-eval "$(nodenv init -)"
-
-# rbenv
-eval "$(rbenv init - zsh)"
-
-
-
-
-# https://github.com/sindresorhus/pure
-#
-#    Pretty, minimal and fast ZSH prompt
-#
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-# prompt pure
-prompt pure
-
-
-
-# AWS CLI command completion
-# https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html#cli-command-completion-linux
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/usr/local/bin/aws_completer' aws
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# set VI editing mode
-bindkey -v
-
-
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
-
-
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
+# Key bindings
+bindkey -v   # vi mode
+
+# Completion system
+autoload -Uz compinit
+compinit -C
+
+autoload -Uz bashcompinit
+bashcompinit
+
+# AWS CLI completion
+if command -v aws_completer >/dev/null; then
+  complete -C "$(command -v aws_completer)" aws
+fi
+
+# Language environment managers
+command -v pyenv  >/dev/null && eval "$(pyenv init -)"
+command -v nodenv >/dev/null && eval "$(nodenv init -)"
+command -v rbenv  >/dev/null && eval "$(rbenv init - zsh)"
+
+# direnv
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# autojump
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && source /opt/homebrew/etc/profile.d/autojump.sh
+
+# Prompt (Pure)
+if command -v brew >/dev/null; then
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fi
+
+autoload -U promptinit
+promptinit
+prompt pure
+
+# fzf
+[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+
+# Aliases
+[ -f "$HOME/.shell_aliases" ] && source "$HOME/.shell_aliases"
