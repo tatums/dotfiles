@@ -2,16 +2,16 @@
 
 dir=$HOME/dotfiles
 olddir=$HOME/dotfiles_old
-files="bashrc
-bash_alias
-bash_profile
-irbrc
-inputrc
+files="
+digrc
 gemrc
 gitconfig
-gitignore_global
-screenrc
-npmrc"
+gitignore
+shell_aliases
+zshenv
+zprofile
+zshrc
+"
 
 
 # create dotfiles_old

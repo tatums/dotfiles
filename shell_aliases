@@ -1,0 +1,96 @@
+# Docker
+alias d="docker"
+# alias dc="CURRENT_UID=$(id -u):$(id -g) docker-compose"
+alias dc="docker compose"
+alias dcgh="docker compose --file docker-compose.github.yml"
+
+# alias rs="docker compose up --scale web=1 --scale sidekiq=2 --scale sidekiq_admin=0"
+# alias rsp="docker compose run --service-ports web bundle exec rails s -b 0.0.0.0"
+# alias xps-code="ssh -A xps -t tmux attach"
+
+
+alias be="bundle exec"
+# alias ag="ag --path-to-ignore ~/.ignore"
+alias ag="rg --ignore-file ~/.ignore"
+
+alias vim="nvim"
+alias vi="nvim"
+
+alias g="git"
+alias gi="git"
+
+alias ll="ls -lah"
+alias tmux="tmux -u"
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+scholastica-shell () {
+  docker container ls | grep '3000' > /dev/null
+  if [ $? -eq 0 ]; then
+   echo "attaching to existing container"
+    docker exec -it $(docker container ls | grep '3000' | awk '{print $1}') bash
+  else
+   echo "creating a new container"
+   docker compose run --remove-orphans --rm --service-ports web bash
+  fi
+}
+
+# `TERM=xterm` are trying to fix the problem where up arrow causes malformed input
+#
+scholastica-production-console() {
+  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica --size=performance-l
+}
+
+scholastica-production-shell() {
+  TERM=xterm heroku run bash --app scholastica --size=performance-l
+}
+
+scholastica-staging-console() {
+  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica-staging --size=performance-l
+}
+
+scholastica-staging-shell() {
+ TERM=xterm heroku run bash --app scholastica-staging --size=performance-l
+}
+
+scholastica-demo-console() {
+  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica-demo --size=performance-l
+}
+
+scholastica-demo-shell() {
+  TERM=xterm heroku run bash --app scholastica-demo --size=performance-l
+}
+
+scholastica-lint() {
+  scholastica-lint-js && scholastica-lint-rb
+}
+
+scholastica-lint-js() {
+    cd modules/scholastica-tools && \
+    npm run lint:fix &&
+    cd -
+}
+
+scholastica-watch() {
+  local PROJECT="$1"
+
+  if [ -z "$PROJECT" ]; then
+    echo "Usage: scholastica-watch <project_name>"
+    return 1
+  fi
+
+  local PROJECT_DIR="/Users/tatum/Code/scholastica/modules/scholastica-tools"
+
+  if [ ! -d "$PROJECT_DIR" ]; then
+    echo "Project directory does not exist: $PROJECT_DIR"
+    return 1
+  fi
+
+  (cd "$PROJECT_DIR" && ng run "$PROJECT":build:development --watch)
+}
+
+scholastica-lint-rb() {
+  echo "running: bundle exec standardrb --fix..."
+  standardrb --fix
+}

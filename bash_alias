@@ -1,9 +1,0 @@
-# moving up in folders;
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-alias ll='ls -la'
-
-## bundler
-alias be='bundle exec'

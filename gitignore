@@ -1,0 +1,11 @@
+.envrc
+archive
+NOTES.md
+.vscode
+tags
+.DS_Store
+.stack-work
+notes.rb
+.solargraph.yml
+.claude
+.aider*

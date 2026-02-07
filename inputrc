@@ -1,2 +1,0 @@
-# Ignore the case of the folder/file when using tab complete
-set completion-ignore-case On
