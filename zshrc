@@ -61,6 +61,7 @@ fi
 command -v pyenv  >/dev/null && eval "$(pyenv init -)"
 command -v nodenv >/dev/null && eval "$(nodenv init -)"
 command -v rbenv  >/dev/null && eval "$(rbenv init - zsh)"
+command -v goenv  >/dev/null && eval "$(goenv init -)"
 
 # direnv
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
