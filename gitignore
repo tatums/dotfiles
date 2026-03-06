@@ -9,3 +9,4 @@ notes.rb
 .solargraph.yml
 .claude
 .aider*
+.copilot-*.md
