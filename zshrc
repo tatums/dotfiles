@@ -83,3 +83,6 @@ prompt pure
 
 # Aliases
 [ -f "$HOME/.shell_aliases" ] && source "$HOME/.shell_aliases"
+
+# bun completions
+[ -s "/Users/tatum/.bun/_bun" ] && source "/Users/tatum/.bun/_bun"
