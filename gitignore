@@ -10,3 +10,4 @@ notes.rb
 .claude
 .aider*
 .copilot-*.md
+.playwright-mcp/

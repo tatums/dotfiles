@@ -3,6 +3,7 @@ alias d="docker"
 # alias dc="CURRENT_UID=$(id -u):$(id -g) docker-compose"
 alias dc="docker compose"
 alias dcgh="docker compose --file docker-compose.github.yml"
+alias ghdc="docker compose --file docker-compose.github.yml"
 
 # alias rs="docker compose up --scale web=1 --scale sidekiq=2 --scale sidekiq_admin=0"
 # alias rsp="docker compose run --service-ports web bundle exec rails s -b 0.0.0.0"
