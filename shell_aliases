@@ -29,11 +29,12 @@ export EDITOR="$VISUAL"
 scholastica-shell () {
   docker container ls | grep '3000' > /dev/null
   if [ $? -eq 0 ]; then
-   echo "attaching to existing container"
-    docker exec -it $(docker container ls | grep '3000' | awk '{print $1}') bash
+    echo "attaching to existing container"
+    SCHOLASTICA_CONTAINER_ID=$(docker ps --filter "publish=3000" --format "{{.ID}}")
+    docker exec -it $SCHOLASTICA_CONTAINER_ID bash
   else
-   echo "creating a new container"
-   docker compose run --remove-orphans --rm --service-ports web bash
+    echo "creating a new container"
+    docker compose run --remove-orphans --rm --service-ports web bash
   fi
 }
 
@@ -81,7 +82,7 @@ scholastica-watch() {
     return 1
   fi
 
-  local PROJECT_DIR="/Users/tatum/Code/scholastica/modules/scholastica-tools"
+  local PROJECT_DIR="/Users/tatum/Code/scholastica/scholastica/modules/scholastica-tools"
 
   if [ ! -d "$PROJECT_DIR" ]; then
     echo "Project directory does not exist: $PROJECT_DIR"
