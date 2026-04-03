@@ -10,6 +10,7 @@ files=(
   gitconfig
   gitignore
   shell_aliases
+  tmux.conf
   zshenv
   zprofile
   zshrc
