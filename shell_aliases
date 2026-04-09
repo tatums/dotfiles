@@ -26,43 +26,129 @@ alias tmux="tmux -u"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-scholastica-shell () {
-  docker container ls | grep '3000' > /dev/null
-  if [ $? -eq 0 ]; then
-    echo "attaching to existing container"
-    SCHOLASTICA_CONTAINER_ID=$(docker ps --filter "publish=3000" --format "{{.ID}}")
-    docker exec -it $SCHOLASTICA_CONTAINER_ID bash
-  else
-    echo "creating a new container"
-    docker compose run --remove-orphans --rm --service-ports web bash
-  fi
+
+
+# Opens a shell in the specified Scholastica environment.
+# Usage: scholastica-shell [local|staging|demo|production|<pr-number>]
+# Defaults to local if no argument is provided.
+scholastica-shell() {
+  local env="${1:-local}"
+
+  case "$env" in
+    local)
+      # Attach to the existing container if one is already bound to port 3000,
+      # otherwise spin up a fresh one.
+      if docker container ls | grep -q '3000'; then
+        echo "attaching to existing container"
+        local container_id
+        container_id=$(docker ps --filter "publish=3000" --format "{{.ID}}")
+        docker exec -it "$container_id" bash
+      else
+        echo "creating a new container"
+        docker compose run --remove-orphans --rm --service-ports web bash
+      fi
+      ;;
+    production)
+      # Production app name doesn't follow the scholastica-$env pattern.
+      heroku run bash --app scholastica --size=performance-l
+      ;;
+    staging|demo)
+      heroku run bash --app "scholastica-$env" --size=performance-l
+      ;;
+    <->)
+      # Numeric argument is treated as a PR number.
+      heroku run bash --app "scholastica-staging-pr-$env" --size=performance-l
+      ;;
+    *)
+      echo "Usage: scholastica-shell [local|staging|demo|production|<pr-number>]" >&2
+      return 1
+      ;;
+  esac
 }
 
-# `TERM=xterm` are trying to fix the problem where up arrow causes malformed input
-#
-scholastica-production-console() {
-  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica --size=performance-l
+# Completion function for scholastica-shell.
+# Registered via compdef below — requires compinit to have been run.
+_scholastica_shell_completions() {
+  local envs=('local' 'staging' 'demo' 'production')
+  compadd "$@" -- "${envs[@]}"
 }
+
+compdef _scholastica_shell_completions scholastica-shell
 
 scholastica-production-shell() {
-  TERM=xterm heroku run bash --app scholastica --size=performance-l
-}
-
-scholastica-staging-console() {
-  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica-staging --size=performance-l
+  scholastica-shell production
 }
 
 scholastica-staging-shell() {
- TERM=xterm heroku run bash --app scholastica-staging --size=performance-l
-}
-
-scholastica-demo-console() {
-  TERM=xterm heroku run "bash -c 'rails console'" --app scholastica-demo --size=performance-l
+  scholastica-shell staging
 }
 
 scholastica-demo-shell() {
-  TERM=xterm heroku run bash --app scholastica-demo --size=performance-l
+  scholastica-shell staging
 }
+
+scholastica-production-console() {
+  printf "DEPRICATED: USE: scholastica-console production\n"
+  scholastica-console production
+}
+scholastica-staging-console() {
+  printf "DEPRICATED: USE: scholastica-console staging\n"
+  scholastica-console staging
+}
+scholastica-demo-console() {
+  printf "DEPRICATED: USE: scholastica-console demo\n"
+  scholastica-demo staging
+}
+
+
+# Opens a Rails console in the specified Scholastica environment.
+# Usage: scholastica-console [local|staging|demo|production|<pr-number>]
+# Defaults to local if no argument is provided.
+scholastica-console() {
+  local env="${1:-local}"
+
+  case "$env" in
+    local)
+      # Attach to the existing container if one is already bound to port 3000,
+      # otherwise spin up a fresh one.
+      if docker container ls | grep -q '3000'; then
+        echo "attaching to existing container"
+        local container_id
+        container_id=$(docker ps --filter "publish=3000" --format "{{.ID}}")
+        docker exec -it "$container_id" rails console
+      else
+        echo "creating a new container"
+        docker compose run --remove-orphans --rm --service-ports web rails console
+      fi
+      ;;
+    production)
+      # Production app name doesn't follow the scholastica-$env pattern.
+      heroku run rails console --app scholastica --size=performance-l
+      ;;
+    staging|demo)
+      heroku run rails console --app "scholastica-$env" --size=performance-l
+      ;;
+    <->)
+      # Numeric argument is treated as a PR number.
+      heroku run rails console --app "scholastica-staging-pr-$env" --size=performance-l
+      ;;
+    *)
+      echo "Usage: scholastica-console [local|staging|demo|production|<pr-number>]" >&2
+      return 1
+      ;;
+  esac
+}
+
+_scholastica_console_completions() {
+  local envs=('local' 'staging' 'demo' 'production')
+  compadd "$@" -- "${envs[@]}"
+}
+
+compdef _scholastica_console_completions scholastica-console
+
+
+
+
 
 scholastica-lint() {
   scholastica-lint-js && scholastica-lint-rb
