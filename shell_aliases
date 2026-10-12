@@ -20,7 +20,19 @@ alias vi="nvim"
 alias g="git"
 alias gi="git"
 
-alias ll="ls -lah"
+# Directory listings: GNU ls (brew coreutils) colors files by type/extension via
+# LS_COLORS from vivid. Falls back to macOS ls (-G, palette from LSCOLORS).
+if command -v gls >/dev/null; then
+  command -v vivid >/dev/null && export LS_COLORS="$(vivid generate tokyonight-night)"
+  alias ls="gls --color=auto"
+  alias ll="ls -lah"
+  alias la="ls -A"
+else
+  alias ls="ls -G"
+  alias ll="ls -lahG"
+  alias la="ls -AG"
+fi
+command -v eza >/dev/null && alias lt="eza --tree --level=2 --icons=auto --git-ignore"
 alias tmux="tmux -u"
 
 export VISUAL=nvim
@@ -115,7 +127,7 @@ scholastica-console() {
         echo "attaching to existing container"
         local container_id
         container_id=$(docker ps --filter "publish=3000" --format "{{.ID}}")
-        docker exec -it "$container_id" rails console
+        docker exec -it "$container_id" bundle exec rails console
       else
         echo "creating a new container"
         docker compose run --remove-orphans --rm --service-ports web rails console
@@ -123,14 +135,14 @@ scholastica-console() {
       ;;
     production)
       # Production app name doesn't follow the scholastica-$env pattern.
-      heroku run rails console --app scholastica --size=performance-l
+      heroku run bundle exec rails console --app scholastica --size=performance-l
       ;;
     staging|demo)
-      heroku run rails console --app "scholastica-$env" --size=performance-l
+      heroku run bundle exec rails console --app "scholastica-$env" --size=performance-l
       ;;
     <->)
       # Numeric argument is treated as a PR number.
-      heroku run rails console --app "scholastica-staging-pr-$env" --size=performance-l
+      heroku run bundle exec rails console --app "scholastica-staging-pr-$env" --size=performance-l
       ;;
     *)
       echo "Usage: scholastica-console [local|staging|demo|production|<pr-number>]" >&2

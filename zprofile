@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/tatum/.docker/bin"
+# End of Docker Desktop section.
+
 # ~/.zprofile
 #
 #    The load order is:
@@ -31,3 +35,6 @@ path+=("$PYENV_ROOT/bin")
 
 # Rust / Cargo
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# Added by Antigravity CLI installer
+export PATH="/Users/tatum/.local/bin:$PATH"

@@ -11,3 +11,4 @@ notes.rb
 .aider*
 .copilot-*.md
 .playwright-mcp/
+config/credentials/*.key
