@@ -22,6 +22,7 @@ alias gi="git"
 
 # Directory listings: GNU ls (brew coreutils) colors files by type/extension via
 # LS_COLORS from vivid. Falls back to macOS ls (-G, palette from LSCOLORS).
+# Defaults to vivid's tokyonight-night theme; `theme` swaps in one matched to the Terminal profile.
 if command -v gls >/dev/null; then
   command -v vivid >/dev/null && export LS_COLORS="$(vivid generate tokyonight-night)"
   alias ls="gls --color=auto"
@@ -34,6 +35,39 @@ else
 fi
 command -v eza >/dev/null && alias lt="eza --tree --level=2 --icons=auto --git-ignore"
 alias tmux="tmux -u"
+
+# Switches the current Terminal.app tab to a profile from ~/dotfiles/terminal
+# and regenerates LS_COLORS from the matching vivid theme.
+# Usage: theme ["Catppuccin Mocha"]   (no argument lists the available themes)
+theme() {
+  local dir="$HOME/dotfiles/terminal"
+
+  if [ -z "$1" ]; then
+    print -l "$dir"/*.terminal(:t:r)
+    return
+  fi
+
+  if [ ! -f "$dir/$1.terminal" ]; then
+    echo "Unknown theme: $1" >&2
+    return 1
+  fi
+
+  osascript -e "tell application \"Terminal\" to set current settings of selected tab of front window to settings set \"$1\"" >/dev/null
+
+  # Profile names map to vivid names: "Tokyo Night Storm" -> tokyonight-storm.
+  local vivid_theme="${${1:l}// /-}"
+  vivid_theme="${vivid_theme/tokyo-night/tokyonight}"
+  [ "$vivid_theme" = "tokyonight" ] && vivid_theme="tokyonight-night"
+  command -v vivid >/dev/null && export LS_COLORS="$(vivid generate "$vivid_theme" 2>/dev/null || vivid generate ansi)"
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+}
+
+_theme_completions() {
+  local themes=("$HOME"/dotfiles/terminal/*.terminal(:t:r))
+  compadd "$@" -- "${themes[@]}"
+}
+
+compdef _theme_completions theme
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"

@@ -38,3 +38,6 @@ path+=("$PYENV_ROOT/bin")
 
 # Added by Antigravity CLI installer
 export PATH="/Users/tatum/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tatum/.lmstudio/bin"
