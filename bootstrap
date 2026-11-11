@@ -38,3 +38,26 @@ for file in "${files[@]}"; do
   echo "------ Linking $src → $dest"
   ln -snf "$src" "$dest"
 done
+
+# Config files that live under ~/.config rather than directly in $HOME.
+config_files=(
+  ghostty/config.ghostty
+)
+
+for file in "${config_files[@]}"; do
+  src="$dir/$file"
+  dest="$HOME/.config/$file"
+  backup="$olddir/.config/$file"
+
+  echo "---- Processing .config/$file"
+  mkdir -p "$(dirname "$dest")"
+
+  if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+    echo "------ Backing up existing .config/$file to $backup"
+    mkdir -p "$(dirname "$backup")"
+    mv "$dest" "$backup"
+  fi
+
+  echo "------ Linking $src → $dest"
+  ln -snf "$src" "$dest"
+done

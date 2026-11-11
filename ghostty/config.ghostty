@@ -1,0 +1,43 @@
+
+# --- Typing / input ---
+mouse-hide-while-typing = true
+# Left Option acts as Alt for nvim/tmux; right Option still types special chars
+macos-option-as-alt = left
+
+# --- Look ---
+font-family = JetBrains Mono
+font-size = 20
+
+# --- theme ---
+# Follows macOS light/dark appearance
+# theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+# theme = iglass Dark
+# theme = TokyoNight Day
+theme = TokyoNight
+
+# window-padding-x = 8
+# window-padding-y = 6
+# window-padding-balance = true
+# Use "hidden" instead if tmux is your only tab system
+# macos-titlebar-style = tabs
+
+# --- Cursor ---
+cursor-style-blink = false
+# no-cursor: let nvim/zsh control cursor shape
+# ssh-terminfo/ssh-env: fix "unknown terminal xterm-ghostty" over SSH
+shell-integration-features = no-cursor,ssh-terminfo,ssh-env
+
+# --- Behavior ---
+copy-on-select = clipboard
+confirm-close-surface = false
+quit-after-last-window-closed = true
+window-save-state = always
+# Keep the default: programs must ask before reading your clipboard
+clipboard-read = ask
+
+# --- Quick terminal (dropdown) ---
+# Needs Accessibility permission in System Settings
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+
+# New windows open here
+working-directory = /Users/tatum/Code/scholastica/scholastica
